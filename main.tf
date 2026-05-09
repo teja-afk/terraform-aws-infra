@@ -132,7 +132,7 @@ resource "aws_security_group" "terraweek_sg" {
 # 7. EC2 Instance
 resource "aws_instance" "terraweek_server" {
   ami                    = data.aws_ami.amazon_linux.id
-  instance_type = var.environment == "prod" ? "t3.small" : "t2.micro"
+  instance_type          = var.environment == "prod" ? "t3.small" : "t2.micro"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.terraweek_sg.id]
 
